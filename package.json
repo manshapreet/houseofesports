@@ -1,0 +1,21 @@
+{
+  "name": "cod-leaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-mongodb-session": "^2.2.0",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3",
+    "swup": "^4.5.2"
+  }
+}

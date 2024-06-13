@@ -1,0 +1,179 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The House of Esports</title>
+    <link rel="icon" href="/utils/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/ranking.css">
+    
+</head>
+<body>
+    <div id="swup" class="transition-fade logo_div">
+        <img class="logo" src="/utils/IMG_0047.PNG" alt="logo">
+    </div>
+
+    <div class="black_div"  >  <h1>THE House OF ESPORTS  
+                     <br> SERVICES</h1>
+
+                      <a href=""><button class="left_btn">view</button> </a>
+    </div> 
+
+    <div class="white_div"  >     
+         <h1>THE House OF ESPORTS  
+                       <br> RANKINGS</h1>
+
+                      <a href="/rankings"><button class="right_btn">view</button> </a>
+    </div> 
+
+
+
+    <nav class="navbar">
+      <div class="pc_nav">
+          <div><a href="/">
+            <img class="logo_nav" src="../utils/Logo_text_white.png" alt="logo">
+          </a></div>
+
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/teams">TEAMS</a>
+          </div>
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/rankings"> RANKINGS</a>
+          </div>
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/services"> SERVICES</a>
+            </div>
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/about"> ABOUT</a>
+          </div>
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/news"> NEWS </a>
+          </div>
+          <div class="hide_on_mobile nav_btn"> 
+            <a class="nav_anchor" href="/shop"> SHOP</a>
+          </div>
+
+          <div class="burger_icon"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26" fill="white"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></svg></div>
+      </div>           
+
+       <div class="mobile_nav"> 
+              
+              <div class="close_icon" ><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+
+              <div><a class="nav_anchor_mobile" href="/teams">TEAMS</a></div>
+              <div><a class="nav_anchor_mobile" href="/rankings">RANKINGS</a></div>
+              <div><a class="nav_anchor_mobile" href="/services">SERVICES</a></div>
+              <div><a class="nav_anchor_mobile" href="/about">ABOUT</a></div>
+              <div><a class="nav_anchor_mobile" href="/news">NEWS</a></div>
+              <div><a class="nav_anchor_mobile" href="/shop">SHOP</a></div>
+
+
+        </div> 
+
+  </nav>
+    
+    <!-- <div style="color:white; z-index:10  "></div> -->
+    <div class="ranking_body">
+        <!-- <div class="ranking_page_header_div"> <p class="points_standing_heading"><b>POINTS STANDINGS </b> </p></div>  -->
+        <div class="points_standing_heading"> POINTS STANDINGS </div>
+       
+        <div class="scrims_div">
+           
+            <div class="scrims">
+                <!-- <div>Scrim 1</div>
+                <div>Scrim 2</div>
+                <div>Scrim 3</div>
+                <div>Scrim 4</div> -->
+            </div>
+
+        <div class="scrim_separator"></div>
+        </div>
+
+        <div class="ranking_page_ranks_div">
+             <!-- <div class="watermark"> <img  src="../utils/logo_hollow.jpg" alt="wtermark"></div> -->
+                <div class="select_div">
+                    <div class="Team_Rankings" style="display: block;">  TEAM RANKINGS</div>
+                    <div class="player_Rankings" style="display: none;">PLAYER RANKINGS</div>
+
+                    <div class="ranking_select">
+                                <select name="scrimname" class="ranking_select_child" placeholder="Select Scrim">
+                                    <option value="team rankings"> Team Rankings    </option>
+                                    <option value="player rankings">Player Rankings </option>
+
+                                </select>
+                    </div>
+                </div>
+
+                <div class="leaderboard_div">
+               
+               
+               
+                    <div class="leaderboard">
+                <div class="table_head">
+                        <div class="rank">RANK</div>
+                        <div class="teamname">TEAM</div>
+                        <div class="matchwins">MATCH WINS</div>
+                        <div class="played_matches">MATCH PLAYED</div>
+                        <div class="positionpts">POSITION PTS</div>
+                        <div class="kills">KILLS</div>
+                        <div class="totalpts">TOTAL</div>
+                </div>
+                <div class="table_head responsive">
+                        <div class="rank">RANK</div>
+                        <div class="teamname">TEAM</div>
+                        <div class="matchwins">MW</div>
+                        <div class="played_matches">MP</div>
+                        <div class="positionpts">PPTS</div>
+                        <div class="kills">KILLS</div>
+                        <div class="totalpts">TPTS</div>
+                </div>
+                 <div class="table_data">
+                       
+                </div>
+                    </div>
+                </div>
+
+                 
+
+
+        
+               
+              
+                <div class="leaderboard_div_players" style="display:none;">
+             
+            <div class="leaderboard">
+                <div class="table_head_p">
+                        <div class="rank">RANK</div>
+                        <div class="playername">PLAYER</div>
+                        <div class="teamname">TEAM</div>
+                        <div class="kills">KILLS</div>
+                        <div class="damage">DAMAGE</div>
+                       
+                </div>
+                <div class="table_head_p responsive">
+                        <div class="rank">RANK</div>
+                        <div class="playername">PLAYER</div>
+                        <div class="teamname">TEAM</div>
+                        <div class="kills">KILLS</div>
+                        <div class="damage">DMG</div>
+                       
+                </div>
+                 <div class="table_data_players">
+                       
+                </div>
+            </div>
+                </div>
+
+        </div>
+        
+    </div>
+<!-- <script defer src="./scripts/ranking.js"></script>
+<script defer src="./scripts/common.js"></script> -->
+
+
+  <script src="./scripts/loader.js"></script>
+</body>
+</html>

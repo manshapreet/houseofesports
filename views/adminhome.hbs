@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="icon" href="../utils/favicon.ico">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+Admin Home
+
+    <a href="/adminhome/logout"><button class="logout">Logout</button> </a>
+
+                 {{!-- <div class="enter_ranking">
+                    <h3>enter team rankings</h3>
+                        <form action="/admin/ranking" method="POST">
+                            <input type="text" name="teamname" class="teamname" placeholder="teamname">
+                            <input type="text" name="rank" class="rank" placeholder="rank">
+                            <button class="submit">submit</button>
+                        </form>
+                 </div> --}}
+    <div>
+         <button class="manage_scrim_btn">Manage SCRIM</button>
+         <button class="manage_team_btn">Manage TEAM</button>
+    </div>
+
+    <div class="manage_scrim_div" style="display: none;">
+        <button class="display_add_scrim_btn">ADD New Scrim</button>
+        <button class="display_modify_scrim_btn">Modify Scrim Data</button>
+        <button class="display_delete_scrim_btn">Delete Scrim</button>
+
+        <div class="add_scrim_div" style=" display:none; background-color: #A7BEAE" >
+                <h1>Add NEW Scrim </h1>
+
+                <form action="/adminhome/addscrim" method="POST">
+                    <input type="text" name="scrimshortform" placeholder="SCRIM short-form CAPS"> 
+
+                    <input type="text" name="scrimname" label="Scrim Name" placeholder="SCRIM full name">
+
+                    <button class="submit">Enter</button>
+                </form>
+        </div>
+
+        <div class="modify_scrim_div" style="
+        background-color: #A7BEAE;
+        {{!-- border: 1px solid black;  --}}
+        display:none" >
+             <h1>Modify Scrim Data </h1>
+
+             <h2>select scrim</h2>
+                          
+              <select name="scrimname" class="scrims1" placeholder="Select Scrim">
+                        {{!-- <option value="Scrim 1">Scrim 1</option>
+                        <option value="Scrim 2">Scrim 2</option>
+                        <option value="Scrim 3">Scrim 3</option> --}}
+              </select>
+           
+             <button class="display_add_new_team_btn">add new team</button>
+             <button class="display_edit_team_btn">edit team entries</button>
+              <button class="display_delete_team_btn">remove team</button>
+
+
+            <div class="add_team_div" style="
+            {{!-- border: 1px solid black;  --}}
+            background-color: #E7E8D1;
+            display:none">
+                <h3>add new team to SCRIM </h3>   
+                   
+                    <select placeholder="Add Team to Scrim" class="add_team_to_scrim">
+                    </select> 
+                    <button class="submit_team_btn">add new Team </button>
+                
+            </div>
+            
+            <div class="modify_team_div" style="
+            {{!-- border: 1px solid black; --}}
+            background-color: #E7E8D1; display:none">
+                <h2>modify existing team data</h2>
+
+                {{!-- <form action="/adminhome/addteam" method="POST"> --}}
+                
+
+                <div>
+                    <div class="selected_scrim_name">
+                    </div>
+
+                    <h3>select team name</h3>
+                    <form>   
+                        <select name="teamname" class="teams"  placeholder="Select team">
+                            {{!-- <option value="Scrim 1">Scrim 1</option>
+                            <option value="Scrim 2">Scrim 2</option>
+                            <option value="Scrim 3">Scrim 3</option> --}}
+                        </select>
+
+                        <button class="modify_team_data_btn">modify team data</button>
+                    </form>
+                    
+                    
+                </div>
+                    
+            </div> 
+
+            <div class="selected_team" style="display: none; background-color: #E7E8D1;">
+                <h2>add team entries</h2>
+                <h3 class="current_team_name"> </h3>
+                <div>team data
+                    <input type="text" name="" placeholder="team wins" class="team_wins">
+                    <input type="text" name="" placeholder="position points" class="position_points">
+                    <input type="text" name="" placeholder="matches played" class="played_matches">
+
+                    <button class="submit_team_data_btn">submit team data</button>
+                </div>
+                <button class="edit_player_entries_btn">edit player entries</button>
+                <div class="edit_player_entries_div" style="display: none;">
+                    <h2>select player</h2>
+                    <div class="team_members">
+                    <div class="">
+                        
+                            <select name="member_name" class="members"  placeholder="Select Member">
+                                
+                            </select>
+                            <button class="modify_member_data_btn">modify player data</button>
+                            <button class="delete_member_scrim"> </button>
+                        
+                    </div>
+
+                    <div class="add_new_member_div">
+                        <button class="add_new_member_btn">add new member
+                        </button>
+                        <div style="display: none;" class="add_player_div">
+                            
+                                <select placeholder="Add Member Name" class="member_name_input">
+                                    </select>
+                                <button class="submit_member_btn">Add</button>
+                            
+                        </div>
+                    </div>
+                    </div>
+
+                     <div class="selected_member" style="display: none;">
+                    <h3 class="display_selected_member_name"></h3>
+                    <form action="">
+                        {{!-- <input class="match_wins" type="number" placeholder="Match Wins" name="match_wins"> --}}
+                        {{!-- <input class="position_points" type="number" placeholder="Position Points" name="position_points"> --}}
+                        <input class="kills" type="number" placeholder="Kills" name="kills">
+                        <input class="damage" type="number" placeholder="Damage" name="damage">
+                        {{!-- <input class="total_points" type="number" placeholder="Total Points" name="total_points"> --}}
+                        <button class="submit_player_data_btn">Submit Team Data</button>
+                    </form>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="delete_team_scrim_div" style="display: none;">
+                 <h3>remove team from scrim</h3>
+
+                {{!-- <form action="/adminhome/addteam" method="POST"> --}}
+                
+
+                <div>
+                    {{!-- <div class="selected_scrim_name">
+                    </div> --}}
+
+                    <h4>select team name</h4>  
+                        <select name="teamname" class="teams2"  placeholder="Select team">
+                        </select>
+
+                        <button class="delete_team_scrim_btn">remove team</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="delete_scrim_div" style=" display:none; background-color: #A7BEAE">
+            <h1>Delete Scrim and Data </h1>
+
+             <h2>select scrim</h2>
+                          
+              <select name="scrimname" class="scrims2" placeholder="Select Scrim">
+                        {{!-- <option value="Scrim 1">Scrim 1</option> --}}
+              </select>
+
+              <button class= "delete_scrim_btn" > delete </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="manage_team_div" style="display: none;">
+            <button class="register_new_team_btn">register new team</button>
+            <button class="manage_existing_team_btn">manage existing team</button>
+
+            <div class="register_new_team_div" style="display: none; background-color: #A7BEAE;" >
+                <h3>register new team</h3>
+                <input type="text" placeholder="teamname" name="teamname" class="new_teamname_input">
+                <input type="text" placeholder="teamshortform" name="teamshortform" class="teamshortform_input">
+
+                <button class="submit_new_team_btn">submit new team data</button>    
+            </div>
+    
+            <div class="manage_existing_team_div" style="display: none; background-color: #A7BEAE;">
+                 <h3>Manage Existing Team</h3>
+                 select existing team
+                 <select name="" class="selectTeams">
+                     {{!-- <option value="" > option</option> --}}
+                 </select>
+                 <button class="select_team_forManagebtn">select team</button>
+
+                
+
+                 <div class="manage_players_div" style="display: none;">
+                     <button class="manage_existing_players_btn">manage existing players</button>
+                     <button class="add_new_player_btn">add new player to team</button>
+
+                     <div class="manage_existing_players_div" style="display: none;">
+                        <h4>Delete Player</h4>
+                         <select name="" class="selectPlayers" placeholder="Select Player">
+
+                         </select>
+                         <button class="delete_player_btn">delete player</button>
+                     </div>
+
+                     <div class="add_players_div" style="display: none;">
+                        <h4>Add New Player to Team</h4>
+                         <input type="text" class="playername_input" placeholder="Player Name">
+                         <button class="add_player_btn">add player</button>
+                     </div>
+                 </div>
+            </div>
+    </div>
+
+<script defer src="./scripts/adminhome.js"></script>
+
+</body>
+</html>
